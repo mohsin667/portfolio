@@ -11,19 +11,25 @@ export default function Resume() {
             <ul>
                 <li>
                     <div className="passing-year">2006 - 2010</div>
-                    <h4>BACHELOR DEGREE - <span>TUNIS HIGH SCHOOL</span></h4>
+                    <strong>
+                        <p>BACHELOR DEGREE - <span>TUNIS HIGH SCHOOL</span></p>
+                    </strong>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore</p>
                     <p>sed do eiusmod tempor ut labore</p>
                 </li>
                 <li>
                     <div className="passing-year">2004 - 2005</div>
-                    <h4>BACHELOR DEGREE - <span>TUNIS HIGH SCHOOL</span></h4>
+                    <strong>
+                        <p>BACHELOR DEGREE - <span>TUNIS HIGH SCHOOL</span></p>
+                    </strong>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sedtempor ut </p>
                 </li>
                 <li>
                     <div className="passing-year">2003 - 2006</div>
-                    <h4>BACHELOR DEGREE - <span>TUNIS HIGH SCHOOL</span></h4>
+                    <strong>
+                        <p>BACHELOR DEGREE - <span>TUNIS HIGH SCHOOL</span></p>
+                    </strong>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore</p>
                 </li>
             </ul>

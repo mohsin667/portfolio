@@ -5,16 +5,35 @@
         font-size: 18px;
     }
     h2 {
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
     ul {
-        margin-top: 40px;
+        margin-top: 30px;
         padding-left: 70px;
         border-left: 1px solid $base;
         margin-left: 15px;
         li {
             margin-bottom: 70px;
             position: relative;
+            strong {
+                color: #fff;
+                font-family: teko;
+                display: flex;
+                gap: 3px;
+                align-items: center;
+                text-transform: uppercase;
+                p {
+                    font-size: 18px;
+                    span {
+                        color: $base;
+                        font-size: 12px;
+                        font-family: 'roboto', sans-serif;
+                        position: relative;
+                        top: -2px;
+                        color: $contrast;
+                    }
+                }
+            }
             p {
                 margin-bottom: 0;
             }
