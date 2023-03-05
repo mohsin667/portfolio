@@ -1,0 +1,41 @@
+.skills {
+    padding-top: 50px;
+}
+.progress-wrapper {
+    margin-top: 40px;
+    position: relative;
+    
+    ul {
+        display: flex;
+        gap: 50px 120px;
+        flex-flow: wrap;
+        li {
+            width: calc(50% - 60px);
+            position: relative;
+            .percentage {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+    
+    .progress-bar {
+        background-color: $base;
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+        height: 5px;
+        border-radius: 2px;
+    }
+    .progress {
+        position: absolute;
+        width: 50%;
+        background-color: $contrast;
+        height: 100%;
+        border-radius: 2px;
+    }
+}

@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@300;400;700&display=swap');
+
+body {
+    background-color: #000;
+    font-family: 'Roboto', sans-serif;
+    color: #a9a9a9;
+    line-height: 1.5;
+}
+body, form, fieldset, ol, ul, li, h1, h2, h3, h4, h5, h6 {
+    margin:0;
+    padding:0;
+}
+h1,h2,h3,h4,h5,h6 {
+  color: #fff;
+}
+p {
+  margin:0;
+  padding:0;
+}
+img {
+    border:0; /* kills Gecko bug when img's are placed inside links */
+    vertical-align:bottom; /* set vertical align to bottom for IE */
+}
+/* ------------------- Defaults ------------------- */
+html {
+    height:100%; 
+    overflow:auto; /* triggers 100% height in Opera 9.5 */
+    overflow-y:scroll; /* creates a horizontal scrollbar, for a more consistent look & feel */
+}
+body {
+    height:100%; /* helps make height 100% */
+    font:100%/1.5; /* 100% = 16px, 93.75% = 15px, 87.5% = 14px, 81.25% = 13px, 75% = 12px - font-size in % prevents IE's resize bug */
+}
+/* ------------------ Typography ------------------- */
+ul {
+    li {
+        font-family: 'Roboto Mono', monospace;
+    }
+}
+h1, h2, h3, h4, h5, h6 ,p {
+    margin-bottom: 10px;
+  }
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Mono', monospace;
+  }
+  p, ul, ol {
+  font-size:1em;
+  }
+  ul {
+  margin:0 ;
+  list-style:none;
+  }
+  h1 {font-size:1.6em;}
+  h2 {font-size:1.5em;}
+  h3 {font-size:1.4em;}
+  h4 {font-size:1.3em;}
+  h5 {font-size:1.2em;}
+  h6 {font-size:1.1em;}
+  /* -------------------- Forms ---------------------- */
+  fieldset {
+  border:none;
+  }
+  form :focus {
+  outline:0; /* removes Safari's blue border */
+  }  
+  input, select, textarea {
+  font-size:1em;
+  font-family:Arial, Helvetica, sans-serif;
+  }
+  label {
+  cursor:pointer;
+  vertical-align:middle;
+  }
+  input {
+  vertical-align:middle;
+  }
+  textarea { 
+  overflow:auto; /* removes scrollbar from IE when none is needed */
+  }	
+  /* -------------------- Layout --------------------- */
+  #wrap {
+  margin:0 auto; /* centers layout */
+  min-height:100%; /* height 100% in all modern browsers */
+  }
+  #head {
+  }
+  #nav {
+  }
+  #content {
+  }
+  #left {
+  float:left;
+  }
+  #foot {
+  clear:both;
+  }
+  /* ------------------- Links ---------------------- */
+  a {
+  text-decoration:underline;
+  color:#000;
+  outline:0; /* removes dotted border */
+  }
+  a:visited {
+  color:#999;
+  }
+  a:hover, a:focus, a:active {
+  text-decoration:none;
+  /* add-custom:outline-rule-here; */
+  }
+  /* --------------------- Menus -------------------- */
+  /* Main Menu */
+  #nav {
+  }
+  #nav li {
+  }
+  #nav a {
+  text-decoration:none;
+  }
+  #nav a:hover, #nav a:focus, #nav a:active {
+  }
+  /* Foot Menu */
+  #foot ul {
+  }
+  #foot li {
+  }
+  #foot a {
+  text-decoration:none;
+  }
+  #foot a:hover, #foot a:focus, #foot a:active {
+  }
+  /* ---------------- Global Classes --------------- */
+  .clear {
+  clear:both;
+  line-height:0;
+  height:0;
+  font-size:0;
+  }
+
+  .clearfix:after {
+  content:" "; 
+  display:block; 
+  height:0;
+  font-size:0; 
+  clear:both; 
+  visibility:hidden;
+  }
+  .clearfix {display:inline-block;}
+  /* mac hide \*/
+  * html .clearfix {height:1%;}
+  .clearfix {display:block;}
+
+  .container {
+    width: min(calc(100% - 30px), 1140px);
+    margin-inline: auto;
+  }
+
+  .gloabal {
+    padding-bottom: 75px;
+  }
+
+  button,.btn {
+    outline: none;
+    border: none;
+    background-color:$contrast;
+    padding:14px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  hr {
+    width: min(calc(100% - 30px), 1140px);
+    opacity: 0.2;
+  }

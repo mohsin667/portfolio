@@ -1,0 +1,84 @@
+header {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    .overlay {
+        background-image: linear-gradient(to bottom, rgb(0,0,0,0.5), #000);
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        
+    }
+    .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .container {
+        position: relative;
+        height: 100%;
+        z-index: 99;
+        display: flex;
+        align-items: flex-end;
+        // justify-content: center;
+        .inner-content {
+            margin-top: 150px;
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 70px;
+            img {
+                max-width: 380px;
+                aspect-ratio: 4/5;
+                object-fit: cover;
+                object-position: top;
+            }
+        }
+
+        .personal-info {
+            color: #a9a9a9;
+            padding-top: 30px;
+            font-size: 18px;
+            h1 {
+                margin-bottom: 0;
+                font-size: 55px;
+                text-transform: uppercase;
+                color: #fff;
+            }
+            .bio {
+                margin-top: 50px;
+                .row {
+                    display: flex;
+                    margin-bottom: 15px;
+                    .info {
+                        width: 100px;
+                    }
+                    .detail {
+                        color: #fff;
+                    }
+                }
+            }
+            .social {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                margin-top: 30px;
+                .links {
+                    cursor: pointer;
+                }
+
+                svg {
+                    fill: $contrast;
+                }
+            }
+        }
+    }
+}
+
+.image-box {
+    position: relative;
+    img {
+        position: relative;
+        z-index: 99;
+    }
+}
