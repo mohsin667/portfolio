@@ -7,9 +7,10 @@ nav {
     ul {
         display: flex;
         justify-content: center;
-        padding: 25px 0;
         gap: 20px;
+        padding: 25px 0;
         @include medium {
+            padding: 50px 0;
             gap: 50px;
         }
         li {

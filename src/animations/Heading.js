@@ -7,7 +7,7 @@ function Heading({text,textEnter,textLeave}) {
 
     
   return (
-    <motion.h1 style={{display: "flex"}} 
+    <motion.h1 style={{display: "inline-flex"}} 
         variants={flag.container} 
         initial="hidden" 
         animate="visible"
