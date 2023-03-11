@@ -7,11 +7,17 @@
     
     ul {
         display: flex;
-        gap: 50px 120px;
+        gap: 30px;
         flex-flow: wrap;
+        @include medium {
+            gap: 50px 120px;
+        }
         li {
-            width: calc(50% - 60px);
+            width: calc(50% - 15px);
             position: relative;
+            @include medium {
+                width: calc(50% - 60px);
+            }
             .percentage {
                 position: absolute;
                 top: 0;

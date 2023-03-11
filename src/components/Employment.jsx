@@ -4,7 +4,7 @@ function Employment() {
   return (
     <section className='gloabal intro'>
         <div className="container">
-            <h4>Employment</h4>
+            <h2>Employment</h2>
             <ul>
                 <li>
                     <div className="passing-year">2006 - 2010</div>

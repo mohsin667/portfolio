@@ -8,8 +8,8 @@ function Testimonial() {
             <div className="text-wrapper">
                 <div className='subtitle'>Tesimonial</div>
                 <h2>
-                    what<br />
-                    People<br />
+                    <span>what</span><br />
+                    <span>People</span><br />
                     says.
                 </h2>
             </div>

@@ -2,12 +2,12 @@ import React from 'react'
 
 export default function Resume() {
   return (
-    <section className='gloabal intro'>
+    <section className='gloabal intro education'>
         <div className="container">
-            <h2>Resume_</h2>
+            {/* <h2>Resume_</h2>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit iure eum explicabo quia cum facere, sed ex delectus id dolorem voluptas aliquam consequatur dolorum esse excepturi! Atque ipsum, deleniti fugiat accusamus eius eveniet. Incidunt ab perferendis fugiat. Suscipit, voluptate sunt.</p>
-            <div className="gloabal"></div>
-            <h4>Education</h4>
+            <div className="gloabal"></div> */}
+            <h2>Education</h2>
             <ul>
                 <li>
                     <div className="passing-year">2006 - 2010</div>

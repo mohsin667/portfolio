@@ -36,3 +36,6 @@ export const tabData = [
         description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, rem voluptatibus voluptate et soluta maxime cupiditate debitis? Ad, quis sequi."
     },
 ]
+
+
+export const tabLink = ["website","Landing","Designs"]

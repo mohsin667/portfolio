@@ -2,6 +2,9 @@ header {
     width: 100%;
     position: relative;
     overflow: hidden;
+    &.gloabal {
+        padding-bottom: 50px;
+    }
     .overlay {
         background-image: linear-gradient(to bottom, rgb(0,0,0,0.5), #000);
         position: absolute;
@@ -21,15 +24,24 @@ header {
         z-index: 99;
         display: flex;
         align-items: flex-end;
-        // justify-content: center;
         .inner-content {
-            margin-top: 150px;
             display: grid;
-            grid-template-columns: 380px 1fr;
-            gap: 70px;
+            grid-template-columns: 100%;
+            margin-top: 85px;
+            width: 100%;
+            @include medium {
+                margin-top: 150px;
+                gap: 70px;
+                grid-template-columns: 380px 1fr;
+            }
             img {
-                max-width: 380px;
-                aspect-ratio: 4/5;
+                max-width: 100%;
+                aspect-ratio: 4/3.5;
+                width: 100%;
+                @include medium {
+                    max-width: 380px;
+                    aspect-ratio: 4/5;
+                }
                 object-fit: cover;
                 object-position: top;
             }
@@ -38,15 +50,25 @@ header {
         .personal-info {
             color: #a9a9a9;
             padding-top: 30px;
-            font-size: 18px;
+            white-space: break-spaces;
             h1 {
                 margin-bottom: 0;
-                font-size: 55px;
                 text-transform: uppercase;
                 color: #fff;
+                transition: all ease 0.3s;
+                font-size: 45px;
+                @include medium {
+                    font-size: 55px;
+                }
+                span {
+                    margin: 0 2.5px;
+                }
             }
             .bio {
-                margin-top: 50px;
+                margin-top: 40px;
+                @include medium {
+                    margin-top: 50px;
+                }
                 .row {
                     display: flex;
                     margin-bottom: 15px;
@@ -55,6 +77,15 @@ header {
                     }
                     .detail {
                         color: #fff;
+                        flex: 1;
+                        max-width: 200px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        @include medium {
+                            white-space: initial;
+                            max-width: 100%;
+                        }
                     }
                 }
             }

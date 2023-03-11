@@ -1,16 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function Navigation() {
+function Navigation({textEnter,textLeave}) {
+  const [navbarObject , setNavbarObject] = useState([
+    "Hi",
+    "Skills",
+    "Projects",
+    "Tesimonial",
+    "Contact"
+  ])
   return (
     <nav>
         <div className="container">
-            <ul>
-                <li>HI</li>
-                <li>RESUME</li>
-                <li>PORTFOLIO</li>
-                <li>TESTIMONIALS</li>
-                <li>BLOGS</li>
-                <li>CONTACT</li>
+            <ul       
+                onMouseEnter={textEnter} 
+                onMouseLeave={textLeave}>
+                {
+                  navbarObject.map(link =>( 
+                    <li 
+                    key={link}
+                    >{link}</li>
+                  ))
+                }
             </ul>   
         </div>      
     </nav>

@@ -5,6 +5,10 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #a9a9a9;
     line-height: 1.5;
+    font-size: 16px;
+    @include medium {
+      font-size: 18px;
+    }
 }
 body, form, fieldset, ol, ul, li, h1, h2, h3, h4, h5, h6 {
     margin:0;
@@ -21,6 +25,9 @@ img {
     border:0; /* kills Gecko bug when img's are placed inside links */
     vertical-align:bottom; /* set vertical align to bottom for IE */
 }
+* {
+  box-sizing: border-box;
+}
 /* ------------------- Defaults ------------------- */
 html {
     height:100%; 
@@ -29,7 +36,7 @@ html {
 }
 body {
     height:100%; /* helps make height 100% */
-    font:100%/1.5; /* 100% = 16px, 93.75% = 15px, 87.5% = 14px, 81.25% = 13px, 75% = 12px - font-size in % prevents IE's resize bug */
+    /* 100% = 16px, 93.75% = 15px, 87.5% = 14px, 81.25% = 13px, 75% = 12px - font-size in % prevents IE's resize bug */
 }
 /* ------------------ Typography ------------------- */
 
@@ -142,12 +149,15 @@ h4 {
   .clearfix {display:block;}
 
   .container {
-    width: min(calc(100% - 30px), 1140px);
+    width: min(calc(100% - 50px), 1140px);
     margin-inline: auto;
   }
 
   .gloabal {
-    padding-bottom: 75px;
+    padding-bottom: 50px;
+    @include medium {
+      padding-bottom: 75px;
+    }
   }
 
   button,.btn {
@@ -163,4 +173,24 @@ h4 {
   hr {
     width: min(calc(100% - 30px), 1140px);
     opacity: 0.2;
+  }
+
+  .cursor {
+    background-color: #fff;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 999;
+    transform: translate(0,0);
+    display: none;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    @include medium {
+      display: flex;
+    }
   }

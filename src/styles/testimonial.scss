@@ -1,9 +1,25 @@
 .testimonial-wrapper {
-    padding-top: 60px;
     display: flex;
+    padding-top: 60px;
+    padding-bottom: 15px;
+    @include medium {
+        padding-bottom: 40px;
+    }
     h2 {
-        font-size: 55px;
+        font-size: 40px;
         line-height: 1.3;
+        @include medium {
+            font-size: 55px;
+        }
+        span {
+            margin:0 5px;
+        }
+        br {
+            display: none;
+            @include medium {
+                display: inline;
+            }
+        }
     }
     .subtitle {
         color: $contrast;
@@ -13,22 +29,36 @@
     }
     .testimonial {
         display: flex;
-        gap: 50px;
+        flex-flow: column;
+        gap: 30px;
+        @include medium {
+            gap: 50px;
+        }
+        @include medium {
+            flex-flow: row;
+        }
     }
     .testimonial-cards {
         display: flex;
         flex: 1;
         justify-content: space-between;
-        gap: 50px;
+        flex-flow: column;
+        gap: 30px;
+        @include medium {
+            gap: 50px;
+            flex-flow: row;
+        }
         .card {
             padding: 30px;
             background-color: $dark;
-            width: calc(100% / 2 - 30px);
             background-image: linear-gradient(315deg, rgba(169,169,169,0.2) 8.33%, transparent 8.33%, transparent 50%, rgba(169,169,169,0.2) 50%, #000000 58.33%, transparent 58.33%, transparent 100%);
             background-image: -webkit-linear-gradient(315deg, #00000017 8.33%, transparent 8.33%, transparent 50%, #363636c4 50%, #000000 58.33%, transparent 58.33%, transparent 100%);
             background-image: -o-linear-gradient(315deg, #00000017 8.33%, transparent 8.33%, transparent 50%, #363636c4 50%, #000000 58.33%, transparent 58.33%, transparent 100%);
             background-size: 8.49px 8.49px;
             position: relative;
+            @include medium {
+                width: calc(100% / 2 - 25px);
+            }
             &::before{
                 content: "";
                 width: calc(100% - 20px);

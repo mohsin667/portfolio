@@ -2,17 +2,23 @@ nav {
     color: #fff;
     position: absolute;
     top: 0;
-    z-index: 999;
+    z-index: 998;
     width: 100%;
     ul {
         display: flex;
         justify-content: center;
-        gap: 50px;
         padding: 25px 0;
+        gap: 20px;
+        @include medium {
+            gap: 50px;
+        }
         li {
             cursor: pointer;
             user-select: none;
             font-size: 14px;
+            @include medium {
+                font-size: 16px;
+            }
             font-weight: 600;
             
         }
