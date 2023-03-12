@@ -13,7 +13,7 @@ import Contact from './components/Contact';
 import Loader from './components/Loader';
 import {motion} from 'framer-motion'
 function App() {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const [cursor, setCursor] = useState({
     x: 0,
     y: 0
@@ -42,8 +42,8 @@ function App() {
       backgroundColor: "rgb(225,225,225)",
       transition: {
         type: "spring",
-        mass: 0.6,
-        damping: 14,
+        mass: 0.4,
+        damping: 12,
       }
     },
     text: {
