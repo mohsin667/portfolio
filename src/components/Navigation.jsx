@@ -16,9 +16,7 @@ function Navigation({textEnter,textLeave}) {
                 onMouseLeave={textLeave}>
                 {
                   navbarObject.map(link =>( 
-                    <li 
-                    key={link}
-                    >{link}</li>
+                    <li key={link}>{link}</li>
                   ))
                 }
             </ul>   

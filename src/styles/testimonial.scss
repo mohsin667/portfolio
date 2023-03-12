@@ -9,6 +9,7 @@
         font-size: 40px;
         line-height: 1.3;
         @include medium {
+            max-width: 150px;
             font-size: 55px;
         }
         span {

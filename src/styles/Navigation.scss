@@ -1,16 +1,17 @@
 nav {
     color: #fff;
     position: absolute;
-    top: 0;
     z-index: 998;
+    top: 25px;
+    @include medium {
+        top: 50px;
+    }
     width: 100%;
     ul {
         display: flex;
         justify-content: center;
         gap: 20px;
-        padding: 25px 0;
         @include medium {
-            padding: 50px 0;
             gap: 50px;
         }
         li {

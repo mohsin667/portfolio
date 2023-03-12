@@ -8,7 +8,7 @@ function Loader({setIsLoading,isLoading}) {
         const controls = animate(0, 100, {
         duration: 2,
         onUpdate(value) {
-        node.textContent = value.toFixed(0)+'%';
+          node.textContent = value.toFixed(0)+'%';
         },
         onComplete() {
         setTimeout(()=> {

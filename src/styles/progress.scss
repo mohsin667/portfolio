@@ -39,9 +39,10 @@
     }
     .progress {
         position: absolute;
-        width: 50%;
+        width: 0%;
         background-color: $contrast;
         height: 100%;
         border-radius: 2px;
+        transition: all ease 2s;
     }
 }

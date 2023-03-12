@@ -1,37 +1,40 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+import {motion,useAnimation} from 'framer-motion';
+import { useInView } from "react-intersection-observer";
+import Componentheading from './Componentheading';
+import Lists from './Lists';
 
 function Employment() {
+    const [ref, inView] = useInView({
+        threshold: 0.5
+    });
+    const animation = useAnimation()
+    const heading = useAnimation()
+    const list = useAnimation()
+    const container = {
+        visible: { opacity: 1,y:0,transition:{type: "tween", duration: 1 ,sdelayChildren: 1 }},
+        hidden: { opacity: 0,y:20 }
+    }
+
+    useEffect(()=> {
+        if(inView) {
+            animation.start("visible")
+            heading.start("visible")
+            list.start("visible")
+        }
+    },[animation,inView,])
   return (
-    <section className='gloabal intro'>
+    <motion.div 
+        ref={ref}
+        animate={animation}
+        initial="hidden"
+        variants={container}
+        className='gloabal intro education'>
         <div className="container">
-            <h2>Employment</h2>
-            <ul>
-                <li>
-                    <div className="passing-year">2006 - 2010</div>
-                    <strong>
-                        <p>Software Engineer - <span>Apple</span></p>
-                    </strong>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore</p>
-                    <p>sed do eiusmod tempor ut labore</p>
-                </li>
-                <li>
-                    <div className="passing-year">2004 - 2005</div>
-                    <strong>
-                        <p>Web Designer - <span>Facebook</span></p>
-                    </strong>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sedtempor ut </p>
-                </li>
-                <li>
-                    <div className="passing-year">2003 - 2006</div>
-                    <strong>
-                        <p>Frontend Developer - <span>Google</span></p>
-                    </strong>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore</p>
-                </li>
-            </ul>
+            <Componentheading animate={heading}> Employment </Componentheading>
+            <Lists animate={list} type="employment"/>
         </div>
-    </section>
+    </motion.div>
   )
 }
 

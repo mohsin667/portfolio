@@ -1,33 +1,65 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import {tabData,tabLink} from "../mock"
-// import {motion,AnimatePresence} from "framer-motion"
+import {motion,useAnimation} from 'framer-motion';
+import { useInView } from "react-intersection-observer";
+import {bio,staticAnimation} from '../animations/flag'
+import Componentheading from './Componentheading';
 function MyProjects() {
     const [defaultState,setDefaultState] = useState("All")
     const [tabState,setState] = useState(tabData)
-    const handleTabLink = (link,index) => {
-        setDefaultState(index)
-        if(index !=="All") {
+    const [random,setRandom] = useState(1)
+    const animation = useAnimation()
+    const heading = useAnimation()
+    const tabAnimation = useAnimation()
+    const [ref,inView] = useInView({
+        threshold: 0.2
+    })
+    const handleTabLink = (index,tab) => {
+        setRandom(new Date().getSeconds())
+        setDefaultState(tab)
+        if(tab !=="All") {
             const temp = tabData.filter((data)=> {
-                return data.type === link
+                return data.type === index
             })
             setState(temp)
-        }else {
+        }
+        else {
             setState(tabData)
         }
     }
+    useEffect(()=> {
+        if(inView) {
+            animation.start("visible")
+            heading.start("visible")
+            tabAnimation.start("visible")
+        }
+    },[inView,random])
     return (
         <section className='my-project'>
             <div className="container">
-                <h2>My Projects</h2>
-                <div className="tabs">
-                    <div className={`tabs-item ${defaultState === "All" && "active"}`} onClick={()=> handleTabLink(null,"All")}>All</div>
+                <Componentheading animate={heading}> My Projects </Componentheading>
+                <motion.div 
+                    initial="hidden"
+                    variants={staticAnimation.container}
+                    animate={tabAnimation}
+                    className="tabs">
+                    <motion.div variants={staticAnimation.child} className={`tabs-item ${defaultState === "All" && "active"}`} onClick={()=> handleTabLink(null,"All")}>All</motion.div>
                     {tabLink.map((link,index)=> (
-                        <div key={index} onClick={()=> handleTabLink(link,index)} className={`tabs-item ${index === defaultState && "active"}`}>{link}</div>
+                        <motion.div variants={staticAnimation.child} key={index} onClick={()=> handleTabLink(link,index)} className={`tabs-item ${index === defaultState && "active"}`}>{link}</motion.div>
                     ))}
-                </div>
-                <div className="tab-container">
+                </motion.div>
+                
+                <motion.div 
+                    ref={ref}
+                    key={random}
+                    initial="hidden"
+                    variants={bio.container}
+                    animate={animation}
+                    className="tab-container">
                     {tabState.map((item,index) => (
-                        <div key={`tab-${index}`} className="tab-content">
+                        <motion.div 
+                            variants={bio.child}
+                            key={`tab-${index}`} className="tab-content">
                             <div className="image-wrapper">
                                 <img src={item.image} alt={item.title} />
                             </div>
@@ -44,9 +76,9 @@ function MyProjects() {
                                     <a href={`http://www.google.com`}>{item.source}</a>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     )

@@ -13,8 +13,7 @@ import Contact from './components/Contact';
 import Loader from './components/Loader';
 import {motion} from 'framer-motion'
 function App() {
-  const [isLoading, setIsLoading] = useState(false)
-  // const [cursorText, setCursorText] = useState("")
+  const [isLoading, setIsLoading] = useState(true)
   const [cursor, setCursor] = useState({
     x: 0,
     y: 0
@@ -43,7 +42,8 @@ function App() {
       backgroundColor: "rgb(225,225,225)",
       transition: {
         type: "spring",
-        mass: 0.6
+        mass: 0.6,
+        damping: 14,
       }
     },
     text: {
@@ -53,24 +53,32 @@ function App() {
       y: cursor.y - 35,
       backgroundColor: "rgb(255,255,255)",
       mixBlendMode: "difference"
+    },
+    navText: {
+      height: 40,
+      width: 40,
+      x: cursor.x - 20,
+      y: cursor.y - 20,
+      backgroundColor: "rgb(255,255,255)",
+      mixBlendMode: "difference"
     }
   }
   const textEnter = () => setCursorVariant("text");
   const textLeave = () => setCursorVariant("default");
+  const navTextEnter = () => setCursorVariant("navText");
+  const navTextLeave = () => setCursorVariant("default");
   return (
     <>
       <motion.div
         className='cursor'
         variants={variants}
-        animate={cursorVariant}
-      >
-      </motion.div>
-      <Loader isLoading={isLoading} setIsLoading={setIsLoading}/>
+        animate={cursorVariant} />
+        <Loader isLoading={isLoading} setIsLoading={setIsLoading}/>
       {
         isLoading && 
         <>
           <main>
-            <Navigation textEnter={textEnter} textLeave={textLeave} />
+            <Navigation textEnter={navTextEnter} textLeave={navTextLeave} />
             <Banner textEnter={textEnter} textLeave={textLeave} />
             <Intro />
             <hr />

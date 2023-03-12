@@ -4,16 +4,13 @@ import {flag} from "./flag"
 
 function Heading({text,textEnter,textLeave}) {
     const letters = Array.from(text)
-
-    
   return (
     <motion.h1 style={{display: "inline-flex"}} 
         variants={flag.container} 
         initial="hidden" 
         animate="visible"
         onMouseEnter={textEnter} 
-        onMouseLeave={textLeave}
-        >
+        onMouseLeave={textLeave}>
       
         {letters.map((word,ind) => (
             <motion.span 

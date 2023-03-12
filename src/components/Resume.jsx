@@ -1,39 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import {motion,useAnimation} from 'framer-motion';
+import { useInView } from "react-intersection-observer";
+import Componentheading from './Componentheading';
+import Lists from './Lists';
 
 export default function Resume() {
+    const [ref, inView] = useInView({
+        threshold: 0.5
+    });
+    const animation = useAnimation()
+    const heading = useAnimation()
+    const list = useAnimation()
+    const container = {
+        visible: { opacity: 1,y:0,transition:{type: "tween", duration: 1 ,sdelayChildren: 1 }},
+        hidden: { opacity: 0,y:20 }
+    }
+
+    useEffect(()=> {
+        if(inView) {
+            animation.start("visible")
+            heading.start("visible")
+            list.start("visible")
+        }
+    },[animation,inView])
   return (
-    <section className='gloabal intro education'>
+    <motion.div 
+        ref={ref}
+        animate={animation}
+        initial="hidden"
+        variants={container}
+        className='gloabal intro education'>
         <div className="container">
-            {/* <h2>Resume_</h2>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit iure eum explicabo quia cum facere, sed ex delectus id dolorem voluptas aliquam consequatur dolorum esse excepturi! Atque ipsum, deleniti fugiat accusamus eius eveniet. Incidunt ab perferendis fugiat. Suscipit, voluptate sunt.</p>
-            <div className="gloabal"></div> */}
-            <h2>Education</h2>
-            <ul>
-                <li>
-                    <div className="passing-year">2006 - 2010</div>
-                    <strong>
-                        <p>BACHELOR DEGREE - <span>TUNIS HIGH SCHOOL</span></p>
-                    </strong>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore</p>
-                    <p>sed do eiusmod tempor ut labore</p>
-                </li>
-                <li>
-                    <div className="passing-year">2004 - 2005</div>
-                    <strong>
-                        <p>BACHELOR DEGREE - <span>TUNIS HIGH SCHOOL</span></p>
-                    </strong>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sedtempor ut </p>
-                </li>
-                <li>
-                    <div className="passing-year">2003 - 2006</div>
-                    <strong>
-                        <p>BACHELOR DEGREE - <span>TUNIS HIGH SCHOOL</span></p>
-                    </strong>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut labore</p>
-                </li>
-            </ul>
+            <Componentheading animate={heading}>
+                Education
+            </Componentheading>
+            <Lists animate={list} type="education"/>
         </div>
-    </section>
+    </motion.div>
   )
 }

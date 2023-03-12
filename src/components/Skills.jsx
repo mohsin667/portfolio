@@ -1,81 +1,60 @@
-import React from 'react'
-
+import React,{useEffect} from 'react'
+import {skillsData} from "../mock"
+import {motion, useAnimation} from "framer-motion"
+import { useInView } from 'react-intersection-observer'
+import { bio } from '../animations/flag';
+import Componentheading from './Componentheading';
 function Skills() {
-  return (
-    <section className='gloabal skills'>
-        <div className='container'>
-            <h4>Skills</h4>
-            <div className="progress-wrapper">
-                <ul>
-                    <li>
-                        <p>HTML 5</p>
-                        <div className="progress-bar">
-                            <div className="progress"></div>
-                        </div>
-                        <p className='percentage'>80%</p>
-                    </li>
+    const [ref, inView] = useInView({
+        threshold: 0.5
+    });
+    const animation = useAnimation();
+    const list = useAnimation();
+    const heading= useAnimation();
+    const container = {
+        visible: { opacity: 1,y:0,transition:{type: "tween", duration: 1 ,sdelayChildren: 1 }},
+        hidden: { opacity: 0,y:20 }
+    }
 
-                    <li>
-                        <p>BOOTSTRAP 3</p>
-                        <div className="progress-bar">
-                            <div className="progress"></div>
-                        </div>
-                        <p className='percentage'>80%</p>
-                    </li>
-
-                    <li>
-                        <p>CSS 3</p>
-                        <div className="progress-bar">
-                            <div className="progress"></div>
-                        </div>
-                        <p className='percentage'>80%</p>
-                    </li>
-
-                    <li>
-                        <p>GIT</p>
-                        <div className="progress-bar">
-                            <div className="progress"></div>
-                        </div>
-                        <p className='percentage'>80%</p>
-                    </li>
-
-                    <li>
-                        <p>JAVASCRIPT</p>
-                        <div className="progress-bar">
-                            <div className="progress"></div>
-                        </div>
-                        <p className='percentage'>80%</p>
-                    </li>
-
-                    <li>
-                        <p>REACTJS</p>
-                        <div className="progress-bar">
-                            <div className="progress"></div>
-                        </div>
-                        <p className='percentage'>80%</p>
-                    </li>
-
-                    <li>
-                        <p>PHOTOSHOP</p>
-                        <div className="progress-bar">
-                            <div className="progress"></div>
-                        </div>
-                        <p className='percentage'>80%</p>
-                    </li>
-
-                    <li>
-                        <p>FIGMA</p>
-                        <div className="progress-bar">
-                            <div className="progress"></div>
-                        </div>
-                        <p className='percentage'>80%</p>
-                    </li>
-
-                </ul>
+    useEffect(()=> {
+        if(inView) {
+            animation.start("visible")
+            list.start("visible")
+            heading.start("visible")
+        }
+    },[animation,inView])
+    return (
+        <motion.section 
+            animate={animation}
+            initial="hidden"
+            variants={container}
+            ref={ref}
+            className='gloabal skills'>
+            <div className='container'>
+                <Componentheading animate={heading}>Skills</Componentheading>
+                <div className="progress-wrapper">
+                    <motion.ul
+                        initial="hidden"
+                        variants={bio.container}
+                        animate={list}>
+                        {
+                            skillsData.map((data,index) => (
+                                <motion.li variants={bio.child} key={index}>
+                                    <p>{data.skill}</p>
+                                    <div className="progress-bar">
+                                        <div 
+                                            style={{width: data.percentage+"%"}}
+                                            className="progress"></div>
+                                    </div>
+                                    <p className='percentage'>{data.percentage}%</p>
+                                </motion.li>
+                            ))
+                        }
+                    </motion.ul>
+                </div>
             </div>
-        </div>
-    </section>
-  )
+        </motion.section>
+    )
 }
 
 export default Skills

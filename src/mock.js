@@ -36,6 +36,39 @@ export const tabData = [
         description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, rem voluptatibus voluptate et soluta maxime cupiditate debitis? Ad, quis sequi."
     },
 ]
-
-
 export const tabLink = ["website","Landing","Designs"]
+
+export const skillsData = [
+    {
+        skill: "HTML 5",
+        percentage: 80
+    },
+    {
+        skill: "CSS 3",
+        percentage: 80
+    },
+    {
+        skill: "JAVASCRIPT",
+        percentage: 80
+    },
+    {
+        skill: "PHOTOSHOP",
+        percentage: 50
+    },
+    {
+        skill: "BOOTSTRAP",
+        percentage: 70
+    },
+    {
+        skill: "GIT",
+        percentage: 90
+    },
+    {
+        skill: "REACTJS",
+        percentage: 80
+    },
+    {
+        skill: "FIGMA",
+        percentage: 80
+    },
+]
